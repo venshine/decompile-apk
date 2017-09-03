@@ -62,6 +62,3 @@ echo "View the decompile file"
 
 # 执行jd-gui命令
 java -jar ../../tools/jd-gui/jd-gui.jar $jarname
-
-
-
