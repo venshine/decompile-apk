@@ -1,6 +1,15 @@
 # decompile-apk
 The decompile-apk tool consists of some scripts and different tools, it can provider auto decompile function for produce Java source code and resources from Android Apk files that displayed on GUI.
 
+* jd-gui
+![jd-gui](screenshot/jd-gui.png)
+
+* jadx
+![jadx](screenshot/jadx.png)
+
+* classyshark
+![classyshark](screenshot/classyshark.png)
+
 ## Tools
 * Apktool : v2.2.4
 * dex2jar : v2.1
@@ -12,9 +21,12 @@ The decompile-apk tool consists of some scripts and different tools, it can prov
 * Mac
 * Linux / Unix
 
+## Download
+[decompile-apk](https://github.com/venshine/decompile-apk/releases)
+
 ## Usage
 
-```bash
+```shell
 # using integrated tools to decompile apk
 sh decompile-apk.sh *.apk
 
