@@ -1,4 +1,6 @@
 #!/bin/sh
+SCRIPT_DIR="$(dirname "$0")"
+export SCRIPT_DIR
 
 arg=$1
 
@@ -19,15 +21,15 @@ function input() {
 	case $input in
 		1)
 		## 执行jdgui-apk命令
-		sh jdgui-apk.sh $arg
+		sh $SCRIPT_DIR/jdgui-apk.sh $arg
 		;;
 		2)
 		## 执行classyshark-apk命令
-		sh classyshark-apk.sh $arg
+		sh $SCRIPT_DIR/classyshark-apk.sh $arg
 		;;
 		3)
 		## 执行jadx-apk命令
-		sh jadx-apk.sh $arg
+		sh $SCRIPT_DIR/jadx-apk.sh $arg
 		;;
 		q)
 		## 退出命令
