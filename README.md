@@ -14,10 +14,10 @@ The decompile-apk tool consists of some scripts and different tools, it can prov
 ![classyshark](screenshot/classyshark.png)
 
 ## Tools
-* [Apktool](https://github.com/iBotPeaches/Apktool) : v2.4.0
+* [Apktool](https://github.com/iBotPeaches/Apktool) : v2.4.1
 * [dex2jar](https://github.com/pxb1988/dex2jar) : v2.1
-* [jd-gui](https://github.com/java-decompiler/jd-gui) : v1.4.2
-* [jadx](https://github.com/skylot/jadx) : v0.9.0
+* [jd-gui](https://github.com/java-decompiler/jd-gui) : v1.6.6
+* [jadx](https://github.com/skylot/jadx) : v1.1.0
 * [android-classyshark](https://github.com/google/android-classyshark) : v8.2
 
 ## Platforms
