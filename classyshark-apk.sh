@@ -1,7 +1,9 @@
 #!/bin/sh
+SCRIPT_DIR="$(dirname "$0")"
+export SCRIPT_DIR
 
 # 校验参数合法性
-source util.sh
+source $SCRIPT_DIR/util.sh
 check $1
 
 # 得到新的目录
@@ -23,5 +25,5 @@ echo `pwd`
 echo "View the decompile file"
 
 # 执行ClassyShark命令
-#java -jar ../../tools/classyshark/ClassyShark.jar -export $absolutename
-java -jar ../../tools/classyshark/ClassyShark.jar -open $absolutename
+#java -jar $SCRIPT_DIR/tools/classyshark/ClassyShark.jar -export $absolutename
+java -jar $SCRIPT_DIR/tools/classyshark/ClassyShark.jar -open $absolutename
