@@ -12,11 +12,12 @@ function input() {
 		echo "1: using apktool/dex2jar/jd-gui to decompile apk"
 		echo "2: using ClassyShark to decompile apk"
 		echo "3: using jadx to decompile apk"
+		echo "4: using bytecode-viewer to decompile apk"
 		echo "q: exit"
 	fi
 
-	#echo "Please input your choice(1, 2, 3):"
-	read -p "Please input your choice(1, 2, 3):" input
+	#echo "Please input your choice(1, 2, 3, 4):"
+	read -p "Please input your choice(1, 2, 3, 4):" input
 	
 	case $input in
 		1)
@@ -30,6 +31,10 @@ function input() {
 		3)
 		## 执行jadx-apk命令
 		sh $SCRIPT_DIR/jadx-apk.sh $arg
+		;;
+		4)
+		## 执行bytecode-viewer-apk命令
+		sh bytecode-viewer.sh $arg
 		;;
 		q)
 		## 退出命令
