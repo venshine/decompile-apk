@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 校验参数合法性
 source util.sh
@@ -9,12 +9,12 @@ newfoldername=$foldername
 rm -rf $newfoldername
 
 # 判断目录是否为空
-function isEmptyDir(){ 
+function isEmptyDir(){
     return `ls -A $1|wc -w`
 }
 
 # 执行apktool命令
-sh ../tools/apktool/apktool d -f $absolutename
+bash ../tools/apktool/apktool d -f $absolutename
 
 # 判断目录是否存在，不存在证明执行apktool命令出现异常
 if [ ! -d "$foldername" ];
@@ -38,7 +38,7 @@ cd $foldername
 echo `pwd`
 
 # 执行dex2jar命令
-sh ../../tools/dex2jar/d2j-dex2jar.sh $absolutename
+bash ../../tools/dex2jar/d2j-dex2jar.sh $absolutename
 suffix="-dex2jar.jar"
 jarname=${foldername}${suffix}
 

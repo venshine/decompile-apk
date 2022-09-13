@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 校验参数合法性
 source util.sh
@@ -15,4 +15,4 @@ echo "View the decompile file"
 #sh ../tools/jadx/bin/jadx -d $newfoldername $absolutename
 
 # 执行jadx-gui命令
-sh ../tools/jadx/bin/jadx-gui $absolutename
+bash ../tools/jadx/bin/jadx-gui $absolutename

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 校验参数合法性
 source util.sh

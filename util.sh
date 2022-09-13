@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 # 校验参数合法性
 function check() {
 
 	# 判断是否有参数
-	if [ $# -ne 1 ]; 
+	if [ $# -ne 1 ];
 		then
 		echo "Please input an apk file"
 		exit
