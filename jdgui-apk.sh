@@ -1,7 +1,9 @@
 #!/bin/sh
+SCRIPT_DIR="$(dirname "$0")"
+export SCRIPT_DIR
 
 # 校验参数合法性
-source util.sh
+source $SCRIPT_DIR/util.sh
 check $1
 
 # 得到新的目录
@@ -14,7 +16,7 @@ function isEmptyDir(){
 }
 
 # 执行apktool命令
-sh ../tools/apktool/apktool d -f $absolutename
+sh $SCRIPT_DIR/tools/apktool/apktool d -f $absolutename
 
 # 判断目录是否存在，不存在证明执行apktool命令出现异常
 if [ ! -d "$foldername" ];
@@ -38,7 +40,7 @@ cd $foldername
 echo `pwd`
 
 # 执行dex2jar命令
-sh ../../tools/dex2jar/d2j-dex2jar.sh $absolutename
+sh $SCRIPT_DIR/tools/dex2jar/d2j-dex2jar.sh $absolutename
 suffix="-dex2jar.jar"
 jarname=${foldername}${suffix}
 
@@ -61,4 +63,4 @@ echo ${pathname}
 echo "View the decompile file"
 
 # 执行jd-gui命令
-java -jar ../../tools/jd-gui/jd-gui.jar $jarname
+java -jar $SCRIPT_DIR/tools/jd-gui/jd-gui.jar $jarname
