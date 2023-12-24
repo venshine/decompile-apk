@@ -8,7 +8,7 @@ check $1
 
 # 得到新的目录
 newfoldername=${foldername}"-classyshark"
-rm -rf $foldername
+rm -rf $newfoldername
 
 if [ ! -d "$newfoldername" ];
 	then
