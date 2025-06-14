@@ -33,8 +33,8 @@ function input() {
 		sh $SCRIPT_DIR/jadx-apk.sh $arg
 		;;
 		4)
-		## 执行bytecode-viewer-apk命令
-		sh bytecode-viewer.sh $arg
+                ## 执行bytecode-viewer-apk命令
+                sh $SCRIPT_DIR/bytecode-viewer.sh $arg
 		;;
 		q)
 		## 退出命令
@@ -48,3 +48,4 @@ function input() {
 }
 
 input true
+

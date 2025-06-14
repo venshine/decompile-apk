@@ -19,9 +19,8 @@ cd $newfoldername
 # 打印该目录的路径
 echo `pwd`
 
-# 通过ClassyShark查看apk文件
-echo "View the decompile file"
+# 通过Bytecode-Viewer查看apk文件
+echo "View the decompiled file"
 
-# 执行ClassyShark命令
-#java -jar ../../tools/bytecode-viewer/Bytecode-Viewer.jar -i $absolutename -o . -t all
-java -jar ../../tools/bytecode-viewer/Bytecode-Viewer.jar
+# 执行Bytecode-Viewer命令
+java -jar ../../tools/bytecode-viewer/Bytecode-Viewer.jar -i "$absolutename" -o . -t all
