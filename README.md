@@ -1,5 +1,5 @@
 # decompile-apk
-The decompile-apk tool consists of some scripts and different tools, it can provider auto decompile function for produce Java source code and resources from Android Apk files that displayed on GUI.
+The decompile-apk tool consists of scripts and various tools. It can provide automated decompilation to produce Java source code and resources from Android APK files that are displayed on a GUI.
 
 * jd-gui  
    
