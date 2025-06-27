@@ -1,5 +1,5 @@
 #!/bin/sh
-SCRIPT_DIR="$(dirname "$0")"
+SCRIPT_DIR="$(realpath $(dirname "$0"))"
 export SCRIPT_DIR
 
 # 校验参数合法性
