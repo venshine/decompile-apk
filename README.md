@@ -36,19 +36,19 @@ The decompile-apk tool consists of scripts and various tools. It can provide aut
 
 ```shell
 # using integrated tools to decompile apk (recommend)
-sh decompile-apk.sh *.apk
+bash decompile-apk.sh *.apk
 
 # using apktool/dex2jar/jd-gui to decompile apk
-sh jdgui-apk.sh *.apk
+bash jdgui-apk.sh *.apk
 
 # using jadx to decompile apk
-sh jadx-apk.sh *.apk
+bash jadx-apk.sh *.apk
 
 # using classyshark to decompile apk
-sh classyshark-apk.sh *.apk
+bash classyshark-apk.sh *.apk
 
 # using bytecode-viewer to decompile apk
-sh bytecode-viewer.sh *.apk
+bash bytecode-viewer.sh *.apk
 
 ```
 
