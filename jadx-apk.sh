@@ -5,6 +5,7 @@ export SCRIPT_DIR
 # 校验参数合法性
 source "$SCRIPT_DIR/util.sh"
 check "$@"
+ensure_tool jadx
 
 # 得到新的目录
 newfoldername="${foldername}-jadx"
@@ -14,7 +15,7 @@ rm -rf "$newfoldername"
 echo "View the decompile file"
 
 # 执行jadx命令
-#sh "$SCRIPT_DIR/tools/jadx/bin/jadx" -d "$newfoldername" "$absolutename"
+#sh "$TOOLS_DIR/jadx/bin/jadx" -d "$newfoldername" "$absolutename"
 
 # 执行jadx-gui命令
-sh "$SCRIPT_DIR/tools/jadx/bin/jadx-gui" "$absolutename"
+sh "$TOOLS_DIR/jadx/bin/jadx-gui" "$absolutename"

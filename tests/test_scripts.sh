@@ -15,6 +15,15 @@ chmod +x "$WORK/bin/java"
 export PATH="$WORK/bin:$PATH"
 export JAVA_ARGS_LOG="$WORK/java_args.log"
 
+# 预先放好「已安装」的工具，避免测试时真的下载
+export TOOLS_DIR="$WORK/tools"
+source "$ROOT/setup.sh"
+for entry in "${TOOLS[@]}"; do
+	name="${entry%%|*}"
+	mkdir -p "$TOOLS_DIR/$name"
+	echo "${entry##*|}" > "$TOOLS_DIR/$name/.sha256"
+done
+
 FAILED=0
 fail() {
 	echo "FAIL $1"
@@ -38,7 +47,7 @@ grep -qx "$WORK/my apks/sample.apk" "$JAVA_ARGS_LOG" 2>/dev/null || fail "classy
 rm -f "$JAVA_ARGS_LOG"
 bash "$ROOT/bytecode-viewer.sh" "$WORK/my apks/sample.apk" > /dev/null 2>&1 || fail "bytecode-viewer.sh exited with error"
 [ -f output/sample/keep ] || fail "bytecode-viewer.sh removed output/sample"
-grep -qx "$ROOT/tools/bytecode-viewer/Bytecode-Viewer.jar" "$JAVA_ARGS_LOG" 2>/dev/null || fail "bytecode-viewer.sh used wrong jar path"
+grep -qx "$TOOLS_DIR/bytecode-viewer/bytecode-viewer.jar" "$JAVA_ARGS_LOG" 2>/dev/null || fail "bytecode-viewer.sh used wrong jar path"
 
 # 3. 参数错误时应返回非零退出码
 if bash "$ROOT/jadx-apk.sh" "$WORK/my apks/missing.apk" > /dev/null 2>&1; then

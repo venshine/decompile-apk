@@ -3,3 +3,6 @@
 # 私有内容与临时文件
 .private/
 .tmp/
+
+# 反编译工具由 setup.sh 从官方 Release 下载，不入库
+tools/

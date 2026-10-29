@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# 反编译工具所在目录，首次使用时由 setup.sh 从官方 Release 下载
+export TOOLS_DIR="${TOOLS_DIR:-$SCRIPT_DIR/tools}"
+
+# 确保工具已安装，未安装或版本不一致时自动下载
+function ensure_tool() {
+	if ! command -v java > /dev/null 2>&1; then
+		echo "Java is not installed. Please install JDK 17 or later and try again."
+		exit 1
+	fi
+	if ! bash "$SCRIPT_DIR/setup.sh" "$1"; then
+		echo "Failed to install $1, please check your network and run: bash setup.sh $1"
+		exit 1
+	fi
+}
+
 # 校验参数合法性
 function check() {
 

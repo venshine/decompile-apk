@@ -5,6 +5,7 @@ export SCRIPT_DIR
 # 校验参数合法性
 source "$SCRIPT_DIR/util.sh"
 check "$@"
+ensure_tool bytecode-viewer
 
 # 得到新的目录，清理上次的输出（只删除本工具自己的目录）
 newfoldername="${foldername}-bytecodeviewer"
@@ -20,5 +21,5 @@ pwd
 # 通过Bytecode-Viewer查看apk文件
 echo "View the decompiled file"
 
-# 执行Bytecode-Viewer命令
-java -jar "$SCRIPT_DIR/tools/bytecode-viewer/Bytecode-Viewer.jar" -i "$absolutename" -o . -t all
+# 执行Bytecode-Viewer命令：反编译全部类，结果输出为 zip（新版 -o 需要指定文件）
+java -jar "$TOOLS_DIR/bytecode-viewer/bytecode-viewer.jar" -i "$absolutename" -o "${foldername}-src.zip" -t all

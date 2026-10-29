@@ -18,12 +18,18 @@ The decompile-apk tool consists of scripts and various tools. It can provide aut
 ![bytecode-viewer](screenshot/bytecode-viewer.png)
 
 ## Tools
-* [Apktool](https://github.com/iBotPeaches/Apktool) : v2.4.1
-* [dex2jar](https://github.com/pxb1988/dex2jar) : v2.1
+The tools are no longer bundled in this repository. On first use, each script downloads the tool it needs from the official GitHub release and verifies its SHA-256 checksum (see `setup.sh`).
+
+* [Apktool](https://github.com/iBotPeaches/Apktool) : v3.0.3
+* [dex2jar](https://github.com/ThexXTURBOXx/dex2jar) : v2.4.38 (the actively maintained fork of [pxb1988/dex2jar](https://github.com/pxb1988/dex2jar))
 * [jd-gui](https://github.com/java-decompiler/jd-gui) : v1.6.6
-* [jadx](https://github.com/skylot/jadx) : v1.1.0
+* [jadx](https://github.com/skylot/jadx) : v1.5.6
 * [android-classyshark](https://github.com/google/android-classyshark) : v8.2
-* [bytecode-viewer](https://github.com/Konloch/bytecode-viewer) : v2.9.22
+* [bytecode-viewer](https://github.com/Konloch/bytecode-viewer) : v2.13.2
+
+## Requirements
+* Bash, curl, unzip
+* JDK 17 or later (tested with JDK 21)
 
 ## Platforms
 * Mac
@@ -35,6 +41,9 @@ The decompile-apk tool consists of scripts and various tools. It can provide aut
 ## Usage
 
 ```shell
+# optional: download all tools in advance (otherwise they are downloaded on first use)
+bash setup.sh
+
 # using integrated tools to decompile apk (recommend)
 bash decompile-apk.sh *.apk
 

@@ -5,6 +5,7 @@ export SCRIPT_DIR
 # 校验参数合法性
 source "$SCRIPT_DIR/util.sh"
 check "$@"
+ensure_tool classyshark
 
 # 得到新的目录，清理上次的输出（只删除本工具自己的目录）
 newfoldername="${foldername}-classyshark"
@@ -21,5 +22,5 @@ pwd
 echo "View the decompile file"
 
 # 执行ClassyShark命令
-#java -jar "$SCRIPT_DIR/tools/classyshark/ClassyShark.jar" -export "$absolutename"
-java -jar "$SCRIPT_DIR/tools/classyshark/ClassyShark.jar" -open "$absolutename"
+#java -jar "$TOOLS_DIR/classyshark/classyshark.jar" -export "$absolutename"
+java -jar "$TOOLS_DIR/classyshark/classyshark.jar" -open "$absolutename"
