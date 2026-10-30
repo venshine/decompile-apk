@@ -16,7 +16,11 @@ function input() {
 		echo "q: exit"
 	fi
 
-	read -p "Please input your choice(1, 2, 3, 4):" input
+	# 输入结束（Ctrl-D 或非交互调用）时退出，否则会落入「重新选择」分支无限递归
+	if ! read -p "Please input your choice(1, 2, 3, 4):" input; then
+		echo
+		exit 1
+	fi
 
 	case $input in
 		1)

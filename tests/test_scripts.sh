@@ -57,6 +57,25 @@ if bash "$ROOT/jadx-apk.sh" > /dev/null 2>&1; then
 	fail "jadx-apk.sh should fail without arguments"
 fi
 
+# 4. 菜单在输入结束（Ctrl-D 或非交互调用）时应退出，而不是反复重新读取
+bash "$ROOT/decompile-apk.sh" "$WORK/my apks/sample.apk" < /dev/null > /dev/null 2>&1 &
+menu_pid=$!
+for _ in 1 2 3 4 5 6 7 8 9 10; do
+	kill -0 "$menu_pid" 2> /dev/null || break
+	sleep 0.5
+done
+if kill -0 "$menu_pid" 2> /dev/null; then
+	kill "$menu_pid"
+	fail "decompile-apk.sh did not exit when input ended"
+elif wait "$menu_pid"; then
+	fail "decompile-apk.sh should exit with an error when input ended"
+fi
+
+# 5. 菜单选择后执行对应的反编译脚本
+rm -f "$JAVA_ARGS_LOG"
+echo 4 | bash "$ROOT/decompile-apk.sh" "$WORK/my apks/sample.apk" > /dev/null 2>&1 || fail "decompile-apk.sh choice 4 exited with error"
+grep -qx "$TOOLS_DIR/bytecode-viewer/bytecode-viewer.jar" "$JAVA_ARGS_LOG" 2>/dev/null || fail "decompile-apk.sh choice 4 did not run bytecode-viewer"
+
 if [ "$FAILED" -ne 0 ]; then
 	exit 1
 fi
