@@ -2,6 +2,8 @@
 
 English | [简体中文](README-CN.md)
 
+[![CI](https://github.com/venshine/decompile-apk/actions/workflows/ci.yml/badge.svg)](https://github.com/venshine/decompile-apk/actions/workflows/ci.yml)
+
 The decompile-apk tool consists of scripts and various tools. It can provide automated decompilation to produce Java source code and resources from Android APK files that are displayed on a GUI.
 
 * jd-gui  

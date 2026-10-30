@@ -2,6 +2,8 @@
 
 [English](README.md) | 简体中文
 
+[![CI](https://github.com/venshine/decompile-apk/actions/workflows/ci.yml/badge.svg)](https://github.com/venshine/decompile-apk/actions/workflows/ci.yml)
+
 decompile-apk 由一组脚本和多款反编译工具组成，可以自动反编译 Android APK，得到 Java 源码和资源文件，并在图形界面中查看。
 
 * jd-gui
