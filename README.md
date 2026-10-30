@@ -1,4 +1,7 @@
 # decompile-apk
+
+English | [简体中文](README-CN.md)
+
 The decompile-apk tool consists of scripts and various tools. It can provide automated decompilation to produce Java source code and resources from Android APK files that are displayed on a GUI.
 
 * jd-gui  
@@ -22,9 +25,9 @@ The tools are no longer bundled in this repository. On first use, each script do
 
 * [Apktool](https://github.com/iBotPeaches/Apktool) : v3.0.3
 * [dex2jar](https://github.com/ThexXTURBOXx/dex2jar) : v2.4.38 (the actively maintained fork of [pxb1988/dex2jar](https://github.com/pxb1988/dex2jar))
-* [jd-gui](https://github.com/java-decompiler/jd-gui) : v1.6.6
+* [jd-gui](https://github.com/java-decompiler/jd-gui) : v1.6.6 (no new release since 2019)
 * [jadx](https://github.com/skylot/jadx) : v1.5.6
-* [android-classyshark](https://github.com/google/android-classyshark) : v8.2
+* [android-classyshark](https://github.com/google/android-classyshark) : v8.2 (archived by Google, no longer maintained)
 * [bytecode-viewer](https://github.com/Konloch/bytecode-viewer) : v2.13.2
 
 ## Requirements
