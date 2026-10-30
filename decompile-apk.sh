@@ -4,6 +4,13 @@ export SCRIPT_DIR
 
 arg="$1"
 
+# dex / jar / aar 只有 jadx 支持，不弹菜单，直接用 jadx 打开
+case "${arg##*.}" in
+	dex|jar|aar)
+		exec bash "$SCRIPT_DIR/jadx-apk.sh" "$arg"
+		;;
+esac
+
 function input() {
 	# true 显示以下信息，false不显示
 	if [ "$1" = true ];

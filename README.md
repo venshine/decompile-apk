@@ -50,13 +50,17 @@ The tools are no longer bundled in this repository. On first use, each script do
 bash setup.sh
 
 # using integrated tools to decompile apk (recommend)
+# dex / jar / aar files are opened with jadx directly
 bash decompile-apk.sh *.apk
 
 # using apktool/dex2jar/jd-gui to decompile apk
 bash jdgui-apk.sh *.apk
 
-# using jadx to decompile apk
+# using jadx to decompile apk, dex, jar or aar
 bash jadx-apk.sh *.apk
+bash jadx-apk.sh classes.dex
+bash jadx-apk.sh library.jar
+bash jadx-apk.sh library.aar
 
 # using classyshark to decompile apk
 bash classyshark-apk.sh *.apk
@@ -98,7 +102,6 @@ bash bytecode-viewer.sh *.apk
 
 ## Todo
 * more decompile tools
-* support decompile dex/aar/jar files
 
 ## About
 [venshine.cn@gmail.com](venshine.cn@gmail.com)

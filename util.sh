@@ -15,13 +15,15 @@ function ensure_tool() {
 	fi
 }
 
-# 校验参数合法性
+# 校验参数合法性；CHECK_EXTENSIONS 为允许的文件后缀，默认只接受 apk
 function check() {
+	local extensions="${CHECK_EXTENSIONS:-apk}"
+	local types="${extensions// //}"
 
 	# 判断是否有参数
 	if [ $# -ne 1 ];
 		then
-		echo "Please input an apk file"
+		echo "Please input an $types file"
 		exit 1
 	fi
 
@@ -30,22 +32,13 @@ function check() {
 	# 提取路径中的文件名
 	export filename="${param##*/}"
 	# 通过文件名命名目录
-	export foldername="${filename%.apk}"
+	export foldername="${filename%.*}"
 
-	# 参数长度
-	local len=${#filename}
-
-	# 判断参数长度是否合法（.apk占4个字符）
-	if [ $len -le 4 ];
+	# 判断后缀是否合法，且后缀前有文件名
+	local extension="${filename##*.}"
+	if [ "$extension" = "$filename" ] || [ -z "$foldername" ] || [[ " $extensions " != *" $extension "* ]];
 		then
-		echo "Please input a correct apk file"
-		exit 1
-	fi
-
-	# 判断参数后缀是否为.apk
-	if [ "${filename##*.}"x != "apk"x ];
-		then
-		echo "Please input a correct apk file"
+		echo "Please input a correct $types file"
 		exit 1
 	fi
 

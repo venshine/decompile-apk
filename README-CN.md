@@ -50,13 +50,17 @@ decompile-apk 由一组脚本和多款反编译工具组成，可以自动反编
 bash setup.sh
 
 # 使用集成工具反编译 APK（推荐）
+# dex / jar / aar 文件会直接用 jadx 打开
 bash decompile-apk.sh *.apk
 
 # 使用 apktool / dex2jar / jd-gui 反编译 APK
 bash jdgui-apk.sh *.apk
 
-# 使用 jadx 反编译 APK
+# 使用 jadx 反编译 APK、dex、jar 或 aar
 bash jadx-apk.sh *.apk
+bash jadx-apk.sh classes.dex
+bash jadx-apk.sh library.jar
+bash jadx-apk.sh library.aar
 
 # 使用 classyshark 反编译 APK
 bash classyshark-apk.sh *.apk
@@ -98,7 +102,6 @@ bash bytecode-viewer.sh *.apk
 
 ## 待办
 * 支持更多反编译工具
-* 支持反编译 dex / aar / jar 文件
 
 ## 关于
 [venshine.cn@gmail.com](venshine.cn@gmail.com)

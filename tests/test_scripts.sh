@@ -76,6 +76,34 @@ rm -f "$JAVA_ARGS_LOG"
 echo 4 | bash "$ROOT/decompile-apk.sh" "$WORK/my apks/sample.apk" > /dev/null 2>&1 || fail "decompile-apk.sh choice 4 exited with error"
 grep -qx "$TOOLS_DIR/bytecode-viewer/bytecode-viewer.jar" "$JAVA_ARGS_LOG" 2>/dev/null || fail "decompile-apk.sh choice 4 did not run bytecode-viewer"
 
+# 假 jadx-gui：记录参数后直接返回
+mkdir -p "$TOOLS_DIR/jadx/bin"
+cat > "$TOOLS_DIR/jadx/bin/jadx-gui" <<'EOF'
+#!/bin/sh
+printf '%s\n' "$@" > "$JADX_ARGS_LOG"
+EOF
+export JADX_ARGS_LOG="$WORK/jadx_args.log"
+
+# 6. jadx 除了 apk，还应接受 dex / jar / aar
+for ext in apk dex jar aar; do
+	echo "dummy" > "$WORK/my apks/sample.$ext"
+	rm -f "$JADX_ARGS_LOG"
+	bash "$ROOT/jadx-apk.sh" "$WORK/my apks/sample.$ext" > /dev/null 2>&1 || fail "jadx-apk.sh should accept .$ext"
+	grep -qx "$WORK/my apks/sample.$ext" "$JADX_ARGS_LOG" 2>/dev/null || fail "jadx-apk.sh passed wrong path for .$ext"
+done
+
+# 7. 其他工具仍只接受 apk
+if bash "$ROOT/classyshark-apk.sh" "$WORK/my apks/sample.jar" > /dev/null 2>&1; then
+	fail "classyshark-apk.sh should only accept .apk"
+fi
+
+# 8. 菜单脚本遇到 dex / jar / aar 时不弹菜单，直接用 jadx 打开
+for ext in dex jar aar; do
+	rm -f "$JADX_ARGS_LOG"
+	bash "$ROOT/decompile-apk.sh" "$WORK/my apks/sample.$ext" < /dev/null > /dev/null 2>&1 || fail "decompile-apk.sh should open .$ext with jadx"
+	grep -qx "$WORK/my apks/sample.$ext" "$JADX_ARGS_LOG" 2>/dev/null || fail "decompile-apk.sh did not run jadx for .$ext"
+done
+
 if [ "$FAILED" -ne 0 ]; then
 	exit 1
 fi
