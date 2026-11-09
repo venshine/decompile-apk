@@ -48,6 +48,9 @@ rm -f "$JAVA_ARGS_LOG"
 bash "$ROOT/bytecode-viewer.sh" "$WORK/my apks/sample.apk" > /dev/null 2>&1 || fail "bytecode-viewer.sh exited with error"
 [ -f output/sample/keep ] || fail "bytecode-viewer.sh removed output/sample"
 grep -qx "$TOOLS_DIR/bytecode-viewer/bytecode-viewer.jar" "$JAVA_ARGS_LOG" 2>/dev/null || fail "bytecode-viewer.sh used wrong jar path"
+# Bytecode Viewer 2.13.2 的命令行反编译不可用（-i/-o/-t 会被当成文件名在 GUI 中打开），只应传 apk 路径
+expected_args="$(printf '%s\n' -jar "$TOOLS_DIR/bytecode-viewer/bytecode-viewer.jar" "$WORK/my apks/sample.apk")"
+[ "$(cat "$JAVA_ARGS_LOG" 2>/dev/null)" = "$expected_args" ] || fail "bytecode-viewer.sh should only open the apk in the GUI"
 
 # 3. 参数错误时应返回非零退出码
 if bash "$ROOT/jadx-apk.sh" "$WORK/my apks/missing.apk" > /dev/null 2>&1; then

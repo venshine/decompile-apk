@@ -6,21 +6,15 @@
 
 decompile-apk 由一组脚本和多款反编译工具组成，可以自动反编译 Android APK，得到 Java 源码和资源文件，并在图形界面中查看。
 
-* jd-gui
+<img src="screenshot/demo.gif" alt="decompile-apk 演示" />
 
-![jd-gui](screenshot/jd-gui.png)
+运行 `decompile-apk.sh`，在菜单中选择 jadx，浏览 [WheelView](https://github.com/venshine/WheelView) 示例 App 反编译后的源码。
 
-* jadx
-
-![jadx](screenshot/jadx.png)
-
-* classyshark
-
-![classyshark](screenshot/classyshark.png)
-
-* bytecode-viewer
-
-![bytecode-viewer](screenshot/bytecode-viewer.png)
+| jd-gui | jadx |
+|:---:|:---:|
+| <img src="screenshot/jd-gui.png" width="400" alt="jd-gui" /> | <img src="screenshot/jadx.png" width="400" alt="jadx" /> |
+| **classyshark** | **bytecode-viewer** |
+| <img src="screenshot/classyshark.png" width="400" alt="classyshark" /> | <img src="screenshot/bytecode-viewer.png" width="400" alt="bytecode-viewer" /> |
 
 ## 工具
 仓库中不再内置工具。各脚本首次运行时，会从工具的官方 GitHub Release 下载所需工具，并校验 SHA-256（见 `setup.sh`）。

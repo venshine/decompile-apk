@@ -6,21 +6,15 @@ English | [简体中文](README-CN.md)
 
 The decompile-apk tool consists of scripts and various tools. It can provide automated decompilation to produce Java source code and resources from Android APK files that are displayed on a GUI.
 
-* jd-gui  
-   
-![jd-gui](screenshot/jd-gui.png)
+<img src="screenshot/demo.gif" alt="decompile-apk demo" />
 
-* jadx  
- 
-![jadx](screenshot/jadx.png)
+Run `decompile-apk.sh`, pick jadx from the menu, and browse the decompiled source of the [WheelView](https://github.com/venshine/WheelView) sample app.
 
-* classyshark  
-
-![classyshark](screenshot/classyshark.png)
-
-* bytecode-viewer
-
-![bytecode-viewer](screenshot/bytecode-viewer.png)
+| jd-gui | jadx |
+|:---:|:---:|
+| <img src="screenshot/jd-gui.png" width="400" alt="jd-gui" /> | <img src="screenshot/jadx.png" width="400" alt="jadx" /> |
+| **classyshark** | **bytecode-viewer** |
+| <img src="screenshot/classyshark.png" width="400" alt="classyshark" /> | <img src="screenshot/bytecode-viewer.png" width="400" alt="bytecode-viewer" /> |
 
 ## Tools
 The tools are no longer bundled in this repository. On first use, each script downloads the tool it needs from the official GitHub release and verifies its SHA-256 checksum (see `setup.sh`).
