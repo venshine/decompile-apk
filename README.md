@@ -94,9 +94,6 @@ bash bytecode-viewer.sh *.apk
 	* disadvantage
 		* analyse file slower
 
-## Todo
-* more decompile tools
-
 ## About
 [venshine.cn@gmail.com](venshine.cn@gmail.com)
 

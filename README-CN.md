@@ -94,9 +94,6 @@ bash bytecode-viewer.sh *.apk
 	* 缺点
 		* 分析文件较慢
 
-## 待办
-* 支持更多反编译工具
-
 ## 关于
 [venshine.cn@gmail.com](venshine.cn@gmail.com)
 
